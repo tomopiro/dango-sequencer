@@ -1,15 +1,25 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app">
+    <div class="stage" @click="moveDango">
+      <div class="note">クリックしたあたりまでスライドします</div>
+      <Dango ref="dango" />
+    </div>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Dango from './components/dango-img.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Dango
+  },
+  methods: {
+    moveDango (ev) {
+      // クリックされたX座標までスライドする
+      this.$refs.dango.moveTo(ev.offsetX)
+    }
   }
 }
 </script>
