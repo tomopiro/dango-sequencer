@@ -10,13 +10,10 @@
 export default {
   data () {
     return {
-      x: 200
+      x: 500
     }
   },
   methods: {
-    moveTo (x) {
-      this.x = x
-    }
   }
 }
 </script>
@@ -30,7 +27,5 @@ export default {
   box-sizing: border-box;
   background: url(../../public/img/Dango.svg) no-repeat center;
   background-size: 128px;
-  transform-origin: 50% 100%;
-  transition: transform 500ms;
 }
 </style>

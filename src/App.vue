@@ -1,24 +1,26 @@
 <template>
   <div id="app">
-    <div class="stage" @click="moveDango">
-      <div class="note">クリックしたあたりまでスライドします</div>
-      <Dango ref="dango" />
-    </div>
+    <Dango ref="dango" id="dango"/>
+    <PlayButton @click="moveDango"/>
   </div>
 </template>
 
 <script>
 import Dango from './components/dango-img.vue'
+import PlayButton from './components/play-button.vue'
+import gsap from "gsap";
 
 export default {
   name: 'App',
   components: {
-    Dango
-  },
+    Dango,
+    PlayButton
+},
   methods: {
-    moveDango (ev) {
-      // クリックされたX座標までスライドする
-      this.$refs.dango.moveTo(ev.offsetX)
+    moveDango () {
+      var tl = gsap.timeline({repeat: -1, repeatDelay: 0, onComplete: null});
+      tl.to("#dango", {x: 10, duration: 2})
+      tl.to("#dango", {x: 500, duration: 2})
     }
   }
 }
